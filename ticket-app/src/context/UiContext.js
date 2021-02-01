@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const UiContext = createContext();
 
 export const UiProvider = ({ children }) => {
-  const [hiddenMenu, sethiddenMenu] = useState(false);
+  const [hiddenMenu, sethiddenMenu] = useState(true);
 
   const showMenu = () => {
     sethiddenMenu(false);
@@ -14,7 +14,6 @@ export const UiProvider = ({ children }) => {
   };
   return (
     <UiContext.Provider value={{ hiddenMenu, showMenu, hideMenu }}>
-      {" "}
       {children}
     </UiContext.Provider>
   );
