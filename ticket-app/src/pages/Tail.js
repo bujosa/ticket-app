@@ -75,6 +75,9 @@ export const Tail = () => {
                   description={
                     <>
                       <Text type="secondary">In the Desktop</Text>
+                      <Tag color="magenta">{item.ticketNo}</Tag>
+                      <Text type="secondary">Agent</Text>
+                      <Tag color="volcano">{item.agente}</Tag>
                     </>
                   }
                 />
