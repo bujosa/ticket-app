@@ -6,9 +6,18 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 
 import { SignIn } from "./SignIn";
+import { Tail } from "./Tail";
+import { CreateTicket } from "./CreateTicket";
+import { Desktop } from "./Desktop";
 
 const { Sider, Content } = Layout;
 
@@ -40,6 +49,11 @@ export const RouterPage = () => {
             }}>
             <Switch>
               <Route path="/signin" component={SignIn} />
+              <Route path="/tail" component={Tail} />
+              <Route path="/create-ticket" component={CreateTicket} />
+              <Route path="/desktop" component={Desktop} />
+
+              <Redirect to="/signin" />
             </Switch>
           </Content>
         </Layout>
