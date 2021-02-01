@@ -22,7 +22,7 @@ export const Desktop = () => {
           <Text type="success">5</Text>
         </Col>
 
-        <Col span={4} aling="right">
+        <Col span={4} align="right">
           <Button shape="round" type="danger" onClick={exit}>
             <CloseCircleOutlined />{" "}
           </Button>
@@ -40,7 +40,7 @@ export const Desktop = () => {
       </Row>
 
       <Row>
-        <Col offset={18} span={6} aling="right">
+        <Col offset={18} span={6} align="right">
           <Button onClick={nextTicket} shape="round" type="primary">
             <RightOutlined />
             Next
