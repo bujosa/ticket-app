@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Form, Input, Button, InputNumber, Typography, Divider } from "antd";
 import { SaveOutlined } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { useHideMenu } from "../hooks/useHideMenu";
+import { getUserStorage } from "../helpers/getUserStorage";
 
 const { Title, Text } = Typography;
 
@@ -18,8 +19,13 @@ const tailLayout = {
 
 export const SignIn = () => {
   const history = useHistory();
+  const [user] = useState(getUserStorage);
+
   useHideMenu(false);
-  const onFinish = (values) => {
+
+  const onFinish = ({ agent, desktop }) => {
+    localStorage.setItem("agent", agent);
+    localStorage.setItem("desktop", desktop);
     history.push("/desktop");
   };
 
@@ -27,6 +33,9 @@ export const SignIn = () => {
     console.log("Failed:", errorInfo);
   };
 
+  if (user.agent && user.desktop) {
+    return <Redirect to="/desktop" />;
+  }
   return (
     <>
       <Title level={2}> SignIn</Title>
@@ -39,9 +48,11 @@ export const SignIn = () => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}>
         <Form.Item
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: "Please input your username!" }]}>
+          label="Agent"
+          name="agent"
+          rules={[
+            { required: true, message: "Please input your agent name!" },
+          ]}>
           <Input />
         </Form.Item>
 

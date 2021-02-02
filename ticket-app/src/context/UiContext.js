@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const UiContext = createContext();
 
 export const UiProvider = ({ children }) => {
-  const [hiddenMenu, sethiddenMenu] = useState(true);
+  const [hiddenMenu, sethiddenMenu] = useState(false);
 
   const showMenu = () => {
     sethiddenMenu(false);

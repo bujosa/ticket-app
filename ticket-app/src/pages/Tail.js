@@ -1,7 +1,5 @@
 import React from "react";
-
 import { Col, Typography, Row, List, Card, Tag, Divider } from "antd";
-
 import { useHideMenu } from "../hooks/useHideMenu";
 
 const { Text, Title } = Typography;

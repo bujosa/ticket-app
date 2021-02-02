@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col, Typography, Button, Divider } from "antd";
 import { CloseCircleOutlined, RightOutlined } from "@ant-design/icons";
 import { useHideMenu } from "../hooks/useHideMenu";
+import { getUserStorage } from "../helpers/getUserStorage";
+import { Redirect, useHistory } from "react-router-dom";
 
 const { Title, Text } = Typography;
 
 export const Desktop = () => {
   useHideMenu(false);
 
+  const [user] = useState(getUserStorage());
+
+  const history = useHistory();
+
   const exit = () => {
-    console.log("exit");
+    localStorage.clear();
+    history.replace("/signin");
   };
 
   const nextTicket = () => {
     console.log("Next tickets");
   };
+
+  if (!user.agent) {
+    return <Redirect to="/signin" />;
+  }
 
   return (
     <>
@@ -27,7 +38,8 @@ export const Desktop = () => {
 
         <Col span={4} align="right">
           <Button shape="round" type="danger" onClick={exit}>
-            <CloseCircleOutlined />{" "}
+            <CloseCircleOutlined />
+            Exit
           </Button>
         </Col>
       </Row>
