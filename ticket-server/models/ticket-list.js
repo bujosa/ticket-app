@@ -1,4 +1,4 @@
-const Ticket = require * "./ticket";
+const Ticket = require("./ticket");
 
 class TicketList {
   constructor() {
