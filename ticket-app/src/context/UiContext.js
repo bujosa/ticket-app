@@ -12,6 +12,7 @@ export const UiProvider = ({ children }) => {
   const hideMenu = () => {
     sethiddenMenu(true);
   };
+
   return (
     <UiContext.Provider value={{ hiddenMenu, showMenu, hideMenu }}>
       {children}
