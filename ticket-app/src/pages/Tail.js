@@ -21,7 +21,7 @@ export const Tail = () => {
     };
   }, [socket]);
 
-  socket.return(
+  return (
     <>
       <Title level={1}>Serving the client</Title>
       <Row>
@@ -33,10 +33,10 @@ export const Tail = () => {
                 <Card
                   style={{ width: 300, marginTop: 16 }}
                   actions={[
-                    <Tag color="volcano">{item.agente}</Tag>,
-                    <Tag color="volcano">Escritorio: {item.escritorio}</Tag>,
+                    <Tag color="volcano">{item.agent}</Tag>,
+                    <Tag color="volcano">Escritorio: {item.desktop}</Tag>,
                   ]}>
-                  <Title>No. {item.ticketNo}</Title>
+                  <Title>No. {item.number}</Title>
                 </Card>
               </List.Item>
             )}
@@ -49,13 +49,13 @@ export const Tail = () => {
             renderItem={(item) => (
               <List.Item>
                 <List.Item.Meta
-                  title={`Ticket No. ${item.ticketNo}`}
+                  title={`Ticket No. ${item.number}`}
                   description={
                     <>
                       <Text type="secondary">In the Desktop</Text>
-                      <Tag color="magenta">{item.ticketNo}</Tag>
+                      <Tag color="magenta">{item.number}</Tag>
                       <Text type="secondary">Agent</Text>
-                      <Tag color="volcano">{item.agente}</Tag>
+                      <Tag color="volcano"> {item.agent}</Tag>
                     </>
                   }
                 />
