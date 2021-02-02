@@ -31,9 +31,9 @@ export const Desktop = () => {
     <>
       <Row>
         <Col span={20}>
-          <Title level={2}>Bujosa</Title>
+          <Title level={2}>{user.agent}</Title>
           <Text>You are working on this Desktop: </Text>
-          <Text type="success">5</Text>
+          <Text type="success">{user.desktop}</Text>
         </Col>
 
         <Col span={4} align="right">
