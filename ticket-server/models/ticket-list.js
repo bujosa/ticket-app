@@ -25,5 +25,16 @@ class TicketList {
     if (this.pendings.length === 0) {
       return null;
     }
+
+    const nextTicket = this.pendings.shift();
+
+    nextTicket.agent = agent;
+    nextTicket.desktop = desktop;
+
+    this.assigned.unshift(nextTicket);
+
+    return nextTicket;
   }
 }
+
+module.exports = TicketList;
